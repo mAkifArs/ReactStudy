@@ -1,17 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import  {render} from 'react-dom';
+import {Header} from "./app/components/Header";
+import {Home} from "./app/components/Home";
+class App extends React.Component{
+    render() {
+        var user = {
+            name: "Anna",
+            hobbies: ["Sports"]
+        };
+        return (
+            <div className={"container"}>
+                <div className={"row"}>
+                    <div className={"col-xs-10 col-xs-offset-1"}>
+                        <Header/>
+                    </div>
+                </div>
+                <div className={"row"}>
+                    <div className={"col-xs-10 col-xs-offset-1"}>
+                        <Home name={"Max"} age={27} user={user}/>
+                        <Home/>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+render(<App/>, window.document.getElementById("app"));
